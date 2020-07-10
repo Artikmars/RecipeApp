@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/attachment_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_item"
+        android:layout_width="98dp"
+        android:layout_height="98dp"
+        tools:visibility="visible"
+        android:layout_margin="12dp" />
+
+    <ImageButton
+        android:id="@+id/remove_image"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end"
+        tools:visibility="visible"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_close_24"/>
+
+</FrameLayout>
