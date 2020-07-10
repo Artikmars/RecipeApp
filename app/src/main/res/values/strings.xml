@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">RecipeApp</string>
+
+    <string name="main_no_recipes_yet">No recipes yet! Add one now!</string>
+    <string name="main_all_recipes">All Recipes</string>
+
+    <string name="new_recipe_add_recipe">Add Recipe</string>
+    <string name="new_recipe_title">Title</string>
+    <string name="new_recipe_description">Description</string>
+    <string name="new_recipe_images">Images</string>
+
+    <string name="content_desc_add_new_recipe">Add new recipe</string>
+    <string name="content_desc_save_new_recipe">Save new recipe</string>
+    <string name="content_desc_recipe_image">Recipe image</string>
+    <string name="content_desc_attached_image">Attached image</string>
+    <string name="content_desc_remove_image">Remove image</string>
 </resources>

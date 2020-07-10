@@ -7,13 +7,15 @@
 
     <ImageView
         android:id="@+id/image_item"
+        android:contentDescription="@string/content_desc_attached_image"
         android:layout_width="98dp"
         android:layout_height="98dp"
-        tools:visibility="visible"
+        android:src="@drawable/ic_baseline_add_to_photos_24"
         android:layout_margin="12dp" />
 
     <ImageButton
         android:id="@+id/remove_image"
+        android:contentDescription="@string/content_desc_remove_image"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="end"

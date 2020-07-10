@@ -32,12 +32,13 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="All Recipes"/>
+                android:text="@string/main_all_recipes"/>
 
             <ImageView
                 android:id="@+id/new_recipe_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:contentDescription="@string/content_desc_add_new_recipe"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:src="@drawable/ic_baseline_add_24"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +49,21 @@
     </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/no_recipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:text="@string/main_no_recipes_yet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recipe_recycler_view"

@@ -24,14 +24,7 @@ abstract class RecipeRoomDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    val wordDao = database.recipeDao()
-                    wordDao.deleteAll()
-                    var word = Recipe(title = "Hello", description = "My first recipe", id = 0,
-                    imagePaths = mutableListOf("3"))
-                    wordDao.insert(word)
-                    word = Recipe(title = "World!", description = "The best recipe ever!!", id = 1,
-                        imagePaths = mutableListOf("4"))
-                    wordDao.insert(word)
+                    database.recipeDao()
                 }
             }
         }

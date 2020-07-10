@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".newrecipe.NewRecipeActivity">
 
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/new_recipe_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="0dp">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/new_recipe_toolbar"
         android:layout_width="match_parent"
@@ -22,11 +31,15 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="Add Recipe"/>
+                android:text="@string/new_recipe_add_recipe"/>
 
         <ImageView
             android:id="@+id/new_recipe_save"
+            android:contentDescription="@string/content_desc_save_new_recipe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_save_24"
@@ -38,57 +51,106 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <TextView
         android:id="@+id/new_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Title"
+        android:text="@string/new_recipe_title"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_recipe_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/new_recipe_app_bar_layout" />
 
-    <EditText
-        android:id="@+id/new_title_edit"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/new_title_edit_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:inputType="textPersonName"
+        android:layout_marginEnd="20dp"
+        app:endIconMode="clear_text"
+        app:hintEnabled="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_title"/>
+        app:layout_constraintTop_toBottomOf="@id/new_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/new_title_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/new_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Description"
+        android:text="@string/new_recipe_description"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/new_title_edit" />
+        app:layout_constraintTop_toBottomOf="@id/new_title_edit_layout" />
 
-    <EditText
-        android:id="@+id/new_description_edit"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/new_description_edit_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/new_description"
-        />
+        app:endIconMode="clear_text"
+        app:hintEnabled="false"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/new_description_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingTop="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/new_images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/new_recipe_images"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_description_edit_layout" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/minor_images_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/new_description_edit" />
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_images" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
