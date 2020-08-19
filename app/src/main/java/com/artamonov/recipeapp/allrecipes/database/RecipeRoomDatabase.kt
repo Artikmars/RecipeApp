@@ -16,25 +16,11 @@ abstract class RecipeRoomDatabase : RoomDatabase() {
 
     abstract fun recipeDao(): RecipeDao
 
-    private class WordDatabaseCallback(
-        private val scope: CoroutineScope
-    ) : RoomDatabase.Callback() {
-
-        override fun onOpen(db: SupportSQLiteDatabase) {
-            super.onOpen(db)
-            INSTANCE?.let { database ->
-                scope.launch {
-                    database.recipeDao()
-                }
-            }
-        }
-    }
-
     companion object {
         @Volatile
         private var INSTANCE: RecipeRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): RecipeRoomDatabase {
+        fun getDatabase(context: Context): RecipeRoomDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -45,7 +31,7 @@ abstract class RecipeRoomDatabase : RoomDatabase() {
                     RecipeRoomDatabase::class.java,
                     "recipe_database"
                 )
-                    .addCallback(WordDatabaseCallback(scope))
+                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 return instance

@@ -18,7 +18,7 @@ class NewRecipeViewModel(application: Application): AndroidViewModel(application
     private val images: MutableList<Uri> = mutableListOf()
 
     init {
-        val wordsDao = RecipeRoomDatabase.getDatabase(application, viewModelScope).recipeDao()
+        val wordsDao = RecipeRoomDatabase.getDatabase(application).recipeDao()
         repository = RecipeRepository(wordsDao)
         images.add(Uri.EMPTY)
         imagesMutableList.postValue(images)

@@ -1,24 +1,23 @@
 package com.artamonov.recipeapp.allrecipes.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.*
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.artamonov.recipeapp.allrecipes.database.Recipe
 import com.artamonov.recipeapp.allrecipes.database.RecipeRepository
-import com.artamonov.recipeapp.allrecipes.database.RecipeRoomDatabase
 
-    class AllRecipesViewModel(application: Application): AndroidViewModel(application) {
-
+class AllRecipesViewModel @ViewModelInject constructor(
     private val repository: RecipeRepository
+) : ViewModel(), LifecycleObserver {
     var allRecipes: LiveData<List<Recipe>>
 
-        init {
-        val wordsDao = RecipeRoomDatabase.getDatabase(application, viewModelScope).recipeDao()
-        repository = RecipeRepository(wordsDao)
+    init {
         allRecipes = repository.allRecipes
-        }
+    }
 
-        fun updateList() {
-            allRecipes = repository.allRecipes
-        }
+    fun updateList() {
+        allRecipes = repository.allRecipes
+    }
 
 }
